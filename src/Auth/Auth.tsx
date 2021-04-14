@@ -1,12 +1,35 @@
-// import React, { Component } from 'react';
-// import Signup from './Signup'
+import React, { Component } from 'react';
+// import Login from './Login'
 
-// class Auth extends Component {
+export interface AuthProps {
     
-//     render(){
-//         return <div>Hello from Props Example</div>;
-//     }
-// }
+}
+ 
+export interface AuthState {
+    isLogin: boolean
+    
+}
+ 
+class Auth extends React.Component<AuthProps, AuthState> {
+    constructor(props: AuthProps) {
+        super(props);
+        this.state = {
+            isLogin : false
+        };
+    }
 
-// export default PropsExample;
-
+    isLoginHandler(){
+        this.setState({
+            isLogin: !this.state.isLogin
+        })
+    }
+    render() { 
+        return (
+            <div>
+            Hello from Auth
+            </div>
+        );
+    }
+}
+ 
+export default Auth;

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
+//Token?? Am I setting this correctly? 
+//Also, I was able to sign up as a user even though my username didn't meet the form validation requirements.
+
 interface SignupProps {
-    name?: any;
-    value?: any;
+    // updateToken: any; // ???
 }
+
 interface SignupState {
     username: string,
     password: string,
@@ -12,7 +15,6 @@ interface SignupState {
         password : string
     }
 }
-// const Regex = RegExp(/^\s?[A-Z0-9._+-]{0,}@[A-Z0-0._+-]+\.[A-Z0-9]{2,4}\s?$/i);
 const Regex = RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
 
 class Signup extends Component<SignupProps, SignupState> {
@@ -39,7 +41,6 @@ class Signup extends Component<SignupProps, SignupState> {
                 errors.username = value.length < 5 ? 'Username must be at least 5 characters long' : '';
                 break;
             case 'password':
-                // errors.password = value.length < 8 ? 'Password must be 8 characters long' : '';
                 errors.password = Regex.test(value)? '': 'Password must be at least 8 characters and include at least 1 number, 1 upper case letter, 1 lower case letter, and 1 special character'
                 break;
             default:
@@ -56,11 +57,30 @@ class Signup extends Component<SignupProps, SignupState> {
             (val) => val.length > 0 && (validity = false)
         );
         if(validity === true){
-            console.log('Can Register');
+            fetch('http://localhost:3000/user/create', {
+                method: 'POST',
+                body: JSON.stringify({user: {username: this.state.username, password: this.state.password}}),
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                console.log(data.sessionToken)
+                let checkToken = data.sessionToken;
+                if (checkToken === undefined){
+                    alert('Username is already in use!');
+                return
+                } else {
+                    alert('You have successfully signed up!')
+                } 
+            })
         }else{
-            console.log('You cannot be registered!')
+            alert('Please ensure your username and password meet the criteria')
         }
     }
+
 
     render() {
         const {errors} = this.state
