@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-//Token?? Am I setting this correctly? 
-//Also, I was able to sign up as a user even though my username didn't meet the form validation requirements.
-
 interface SignupProps {
-    // updateToken: any; // ???
+    updateToken: Function;
 }
 
 interface SignupState {

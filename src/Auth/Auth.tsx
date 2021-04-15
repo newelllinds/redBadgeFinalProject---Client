@@ -1,32 +1,28 @@
-import React, { Component } from 'react';
-// import Login from './Login'
+import React from 'react';
+import Signup from './Signup';
+import Login from './Login'
 
 export interface AuthProps {
+    updateToken: Function
     
 }
  
 export interface AuthState {
-    isLogin: boolean
+    // showLogin: boolean
     
 }
  
 class Auth extends React.Component<AuthProps, AuthState> {
     constructor(props: AuthProps) {
         super(props);
-        this.state = {
-            isLogin : false
-        };
+        this.state = {};
     }
 
-    isLoginHandler(){
-        this.setState({
-            isLogin: !this.state.isLogin
-        })
-    }
     render() { 
         return (
             <div>
-            Hello from Auth
+                <Signup updateToken={this.props.updateToken} />
+                <Login updateToken={this.props.updateToken} />
             </div>
         );
     }
