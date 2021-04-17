@@ -3,6 +3,11 @@ import './App.css';
 // import Signup from './Auth/Signup'
 // import Login from './Auth/Login'
 import Auth from './Auth/Auth'
+import HomePage from './Home/HomePage'
+import NavBar from './Home/NavBar'
+import {Route, Switch} from 'react-router-dom';
+import Header from './Home/Header'
+
 
 export interface AppProps {
 
@@ -24,21 +29,42 @@ class App extends React.Component<AppProps, AppState> {
     this.setState({
       sessionToken: newToken
     })
-
   }
 
-  clearToken = () => {
-    localStorage.clear();
-    this.setState({
-      sessionToken: ''
-    })
+  // clearToken = () => {
+  //   localStorage.clear();
+  //   this.setState({
+  //     sessionToken: ''
+  //   })
+  // }
+
+  protectedViews = () => {
+    return this.state.sessionToken === localStorage.getItem('token') ? (
+      <HomePage 
+      // sessionToken={this.state.sessionToken} 
+      />
+    ) : (
+      <Auth updateToken={this.updateToken} />
+    )
   }
 
 
   render() { 
     return (
       <div>
-        <Auth updateToken={this.updateToken}/>
+                <Header />
+
+        {this.protectedViews()}
+
+
+        <NavBar />
+      <Switch>
+      <Route exact path="/" component={() => <HomePage />} />
+
+
+      {/* <Route exact path="/store" component={Store} />
+      <Route exact path="/contact" component={Contact}/> */}
+      </Switch>
 
 
       </div>

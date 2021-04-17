@@ -8,14 +8,16 @@ export interface AuthProps {
 }
  
 export interface AuthState {
-    // showLogin: boolean
+    showLogin: boolean
     
 }
  
 class Auth extends React.Component<AuthProps, AuthState> {
     constructor(props: AuthProps) {
         super(props);
-        this.state = {};
+        this.state = {
+            showLogin: true
+        };
     }
 
     render() { 

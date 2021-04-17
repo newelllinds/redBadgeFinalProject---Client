@@ -67,7 +67,7 @@ class Signup extends Component<SignupProps, SignupState> {
                 console.log(data.sessionToken)
                 let checkToken = data.sessionToken;
                 if (checkToken === undefined){
-                    alert('Username is already in use!');
+                    alert('Please try again');
                 return
                 } else {
                     alert('You have successfully signed up!')
