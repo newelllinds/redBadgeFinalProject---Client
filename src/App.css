@@ -29,11 +29,12 @@
   color: #05324c;
   text-align: center;
   font-size: xx-large;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p,
 div {
-  font-family: Lato;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .wrapper {
@@ -43,7 +44,7 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(249, 249, 235);
+  background-color: rgb(214, 202, 152);
 }
 
 .form-wrapper {
@@ -102,18 +103,19 @@ button {
   padding: 0.938em;
   border: none;
   border-radius: 4px;
-  background-color: #05324c;
+  background-color: rgb(101, 90, 124);
   color: #fefefe;
   /* background-color: rgb(153, 204, 255); */
 }
 
 button:hover {
-  background-color: rgb(6, 73, 11);
+  background-color: rgb(171, 146, 191);
   color: #fefefe;
 }
 
 .username,
-.password {
+.password,
+.role {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
@@ -124,4 +126,17 @@ button:hover {
   width: 100%;
   display: flex;
   flex-wrap: flex;
+}
+
+.footer {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(175, 193, 214);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 18px;
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

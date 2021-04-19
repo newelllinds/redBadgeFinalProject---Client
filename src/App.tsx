@@ -7,6 +7,7 @@ import HomePage from './Home/HomePage'
 import NavBar from './Home/NavBar'
 import {Route, Switch} from 'react-router-dom';
 import Header from './Home/Header'
+import Footer from './Home/Footer'
 
 
 export interface AppProps {
@@ -65,7 +66,7 @@ class App extends React.Component<AppProps, AppState> {
       {/* <Route exact path="/store" component={Store} />
       <Route exact path="/contact" component={Contact}/> */}
       </Switch>
-
+      <Footer />
 
       </div>
       );

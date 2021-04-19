@@ -7,6 +7,7 @@ interface SignupProps {
 interface SignupState {
     username: string,
     password: string,
+    role: number,
     errors : {
         username : string,
         password : string
@@ -20,9 +21,10 @@ class Signup extends Component<SignupProps, SignupState> {
         const initialState = {
             username : '',
             password : '',
+            role: 0,
             errors : {
                 username : '',
-                password : ''
+                password : '',
             }
         }
         this.state = initialState;
@@ -56,7 +58,7 @@ class Signup extends Component<SignupProps, SignupState> {
         if(validity === true){
             fetch('http://localhost:3000/user/create', {
                 method: 'POST',
-                body: JSON.stringify({user: {username: this.state.username, password: this.state.password}}),
+                body: JSON.stringify({user: {username: this.state.username, password: this.state.password, role: Number(this.state.role)}}),
                 headers: new Headers({
                     'Content-Type': 'application/json'
                 })
@@ -95,6 +97,14 @@ class Signup extends Component<SignupProps, SignupState> {
                             <label htmlFor='password'>Password</label>
                             <input type='password' name='password' onChange={this.handleChange}/>
                             {errors.password.length > 0 && <span style={{color: 'red'}}>{errors.password}</span>}
+                        </div>
+                        <div className='role'>
+                            <label htmlFor='role'>Role</label>
+                            <select id='role' name='role' required onChange={this.handleChange}>
+                            <option>Select One:</option>    
+                            <option value='2'>Artist</option>
+                            <option value='3'>Supporter</option>
+                            </select>
                         </div>
                         <div className='submit'>
                             <button>Sign Me Up</button>

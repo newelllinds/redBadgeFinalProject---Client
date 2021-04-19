@@ -1,25 +1,14 @@
-import * as React from 'react';
+import React from "react";
+import { Row } from "reactstrap";
 
-export interface FooterProps {
-    
-}
- 
-export interface FooterState {
-    
-}
- 
-class Footer extends React.Component<FooterProps, FooterState> {
-    constructor(props: FooterProps) {
-        super(props);
-        this.state = {};
-    }
-    render() { 
-        return (
-            <div>
-                
-            </div>
-          );
-    }
-}
- 
+const Footer = () => {
+    return (
+        <footer className="footer">
+            <Row>
+                <p>Indy Art Store &copy;2021</p>
+           </Row>
+        </footer>
+    );
+};
+
 export default Footer;
