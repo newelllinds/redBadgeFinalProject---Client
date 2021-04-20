@@ -8,6 +8,9 @@ import NavBar from './Home/NavBar'
 import {Route, Switch} from 'react-router-dom';
 import Header from './Home/Header'
 import Footer from './Home/Footer'
+import ArtistProfileCreate from './ArtistProfile/ArtistProfileCreate';
+
+//Add browser router
 
 
 export interface AppProps {
@@ -32,18 +35,18 @@ class App extends React.Component<AppProps, AppState> {
     })
   }
 
-  // clearToken = () => {
-  //   localStorage.clear();
-  //   this.setState({
-  //     sessionToken: ''
-  //   })
-  // }
+  clearToken = () => {
+    localStorage.clear();
+    this.setState({
+      sessionToken: ''
+    })
+  }
+
+//clear token for logout button
 
   protectedViews = () => {
-    return this.state.sessionToken === localStorage.getItem('token') ? (
-      <HomePage 
-      // sessionToken={this.state.sessionToken} 
-      />
+    return localStorage.getItem('token') ? (
+      <HomePage token={this.state.sessionToken}/>
     ) : (
       <Auth updateToken={this.updateToken} />
     )
@@ -53,20 +56,12 @@ class App extends React.Component<AppProps, AppState> {
   render() { 
     return (
       <div>
-                <Header />
+        <Header />
+        <ArtistProfileCreate token = {this.state.sessionToken} />
 
         {this.protectedViews()}
 
-
-        <NavBar />
-      <Switch>
-      <Route exact path="/" component={() => <HomePage />} />
-
-
-      {/* <Route exact path="/store" component={Store} />
-      <Route exact path="/contact" component={Contact}/> */}
-      </Switch>
-      <Footer />
+        <Footer />
 
       </div>
       );

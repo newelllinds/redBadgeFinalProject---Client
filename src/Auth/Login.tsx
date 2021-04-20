@@ -31,7 +31,7 @@ class Login extends Component<LoginProps, LoginState> {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (event : any) => {
+    handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
         const { name, value } = event.target;
         let errors = this.state.errors;
@@ -49,7 +49,7 @@ class Login extends Component<LoginProps, LoginState> {
         console.log(this.state.errors);
     }
 
-    handleSubmit = (event : any) => {
+    handleSubmit = (event : React.FormEvent) => {
         event.preventDefault();
         let validity = true;
         Object.values(this.state.errors).forEach(

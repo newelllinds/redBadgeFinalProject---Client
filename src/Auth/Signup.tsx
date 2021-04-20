@@ -49,7 +49,7 @@ class Signup extends Component<SignupProps, SignupState> {
         console.log(this.state.errors);
     }
 
-    handleSubmit = (event : any) => {
+    handleSubmit = (event : React.FormEvent) => {
         event.preventDefault();
         let validity = true;
         Object.values(this.state.errors).forEach(

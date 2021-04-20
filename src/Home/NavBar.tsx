@@ -1,23 +1,16 @@
-import React, { useState } from "react";
+import React from 'react';
 import {Link} from 'react-router-dom'
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-} from "reactstrap";
+  NavLink
+} from 'reactstrap';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export interface NavBarProps {
-    // sessionToken: string
 }
  
 export interface NavBarState {
-    // collapsed: boolean
-    // showSiteBar: boolean,
-    // isLoggedIn: boolean
 }
  
 class NavBar extends React.Component<NavBarProps, NavBarState> {
@@ -26,34 +19,27 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
         this.state = {};
     }
 
-    // toggleNavbar = () => this.setState.collapsed()
-
     render() { 
         return (
-            <div>
-                      <Navbar color="primary" dark>
-        {/* <NavbarBrand href="/" className="me-auto">
-          Routes Practice
-        </NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className="me-2" />
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
+          <div>
+          <p>List Based</p>
+          <Nav>
             <NavItem>
-              <Link to="/contact" onClick={toggleNavbar}>
-              <NavLink>Contact Us</NavLink>
-              </Link>
+              <NavLink href="#">Link</NavLink>
             </NavItem>
             <NavItem>
-              <Link to="/store" onClick={toggleNavbar}>
-              <NavLink>Store</NavLink>
-              </Link>
+              <NavLink href="#">Link</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">Another Link</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink disabled href="#">Disabled Link</NavLink>
             </NavItem>
           </Nav>
-        </Collapse> */}
-      </Navbar>
-
-            </div>
-          );
+          <hr />
+        </div>
+      );
     }
 }
  

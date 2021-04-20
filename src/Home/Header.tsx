@@ -21,7 +21,7 @@ const Header = () => {
 {/* <img className="logo" src={logo} alt="logo"/> */}
       </div>
       <hr />
-      <h4 className="text-center">Welcome to Indy Art Store</h4>
+      {/* <h4 className="text-center">Welcome to Indy Art Store</h4> */}
     </div>
   );
 };

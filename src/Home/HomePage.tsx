@@ -1,7 +1,10 @@
 import React from 'react';
+import NavBar from './NavBar'
+
+//add router
 
 export interface HomePageProps {
-    // sessionToken: string
+    token: string
     
 }
  
@@ -17,7 +20,8 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
     render() { 
         return (
             <div>
-
+                <NavBar />
+                Hello From Home Page
             </div>
           );
     }
