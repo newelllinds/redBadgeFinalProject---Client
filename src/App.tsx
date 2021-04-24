@@ -35,12 +35,12 @@ class App extends React.Component<AppProps, AppState> {
     })
   }
 
-  clearToken = () => {
-    localStorage.clear();
-    this.setState({
-      sessionToken: ''
-    })
-  }
+  // clearToken = () => {
+  //   localStorage.clear();
+  //   this.setState({
+  //     sessionToken: ''
+  //   })
+  // }
 
 //clear token for logout button
 
@@ -57,7 +57,7 @@ class App extends React.Component<AppProps, AppState> {
     return (
       <div>
         <Header />
-        <ArtistProfileCreate token = {this.state.sessionToken} />
+        {/* <ArtistProfileCreate token = {this.state.sessionToken} /> */}
 
         {this.protectedViews()}
 

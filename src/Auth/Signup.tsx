@@ -67,6 +67,7 @@ class Signup extends Component<SignupProps, SignupState> {
             .then(data => {
                 console.log(data)
                 console.log(data.sessionToken)
+                this.props.updateToken(data.sessionToken)
                 let checkToken = data.sessionToken;
                 if (checkToken === undefined){
                     alert('Please try again');
@@ -84,6 +85,8 @@ class Signup extends Component<SignupProps, SignupState> {
     render() {
         const {errors} = this.state
         return (
+            <div className='siteName'>
+            <h4 className='text-center'>Indy Art Store</h4>
             <div className='wrapper'>
                 <div className='form-wrapper'>
                     <h2>Sign Up</h2>
@@ -107,10 +110,11 @@ class Signup extends Component<SignupProps, SignupState> {
                             </select>
                         </div>
                         <div className='submit'>
-                            <button>Sign Me Up</button>
+                            <button>Sign Up</button>
                         </div>
                     </form>
                 </div>
+            </div>
             </div>
         );
     }

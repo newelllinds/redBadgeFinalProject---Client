@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar'
+import ArtistProfileCreate from '../ArtistProfile/ArtistProfileCreate'
+import ArtistIndex from '../ArtistProfile/ArtistIndex'
 
 //add router
 
@@ -21,7 +23,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
         return (
             <div>
                 <NavBar />
-                Hello From Home Page
+                <ArtistIndex token={this.props.token}/>
             </div>
           );
     }

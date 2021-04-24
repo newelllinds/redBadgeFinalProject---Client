@@ -11,15 +11,14 @@ const Header = () => {
         style={{ backgroundImage: `url(${bgimage})`, backgroundSize: "cover" }}
       ></Jumbotron>
       <div className="bar"></div>
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-{/* <img className="logo" src={logo} alt="logo"/> */}
-      </div>
+      </div> */}
       <hr />
       {/* <h4 className="text-center">Welcome to Indy Art Store</h4> */}
     </div>

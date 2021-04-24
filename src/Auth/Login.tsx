@@ -84,6 +84,8 @@ class Login extends Component<LoginProps, LoginState> {
     render() { 
         const {errors} = this.state
         return (
+            <div className='siteName'>
+                          <h4 className='text-center'>Indy Art Store</h4>
             <div className='wrapper'>
                 <div className='form-wrapper'>
                     <h2>Log In</h2>
@@ -99,10 +101,11 @@ class Login extends Component<LoginProps, LoginState> {
                             {errors.password.length > 0 && <span style={{color: 'red'}}>{errors.password}</span>}
                         </div>
                         <div className='submit'>
-                            <button>Log Me In</button>
+                            <button>Log In</button>
                         </div>
                     </form>
                 </div>
+            </div>
             </div>
           );
     }

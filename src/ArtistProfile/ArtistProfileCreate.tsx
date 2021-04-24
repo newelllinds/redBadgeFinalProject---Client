@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface ArtistProfileCreateProps {
     token: string;
+    fetchArtistProfile: Function
     
 }
  
@@ -39,37 +40,51 @@ class ArtistProfileCreate extends React.Component<ArtistProfileCreateProps, Arti
         })
         .then(response => response.json())
         .then((createData) => {
-            console.log(createData)})
+            console.log(createData);
+            this.setState({
+                about_the_artist: '',
+                mediums: '',
+                inspiration: '',
+                achievements: '',
+                website: '',
+            })
+        this.props.fetchArtistProfile()
+        })
 
     }
 
-
     render() { 
         return (
-            <div className='wrapper'>
-                <div className='form-wrapper'>
+            <div className='profile-create-wrapper'>
+                <div className='profile-create-form-wrapper'>
                     <h2>Create Your Artist Profile</h2>
                     <form onSubmit={this.handleSubmit} >
                         <div className='about_the_artist'>
                             <label htmlFor='about_the_artist'>About The Artist</label>
-                            <input type='text' name='about_the_artist' onChange={this.handleSubmit}/>
+                            <br></br>
+                            <input type='text' name='about_the_artist' onChange={(e) => this.setState({about_the_artist: e.target.value})}/>
                         </div>
                         <div className='mediums'>
                             <label htmlFor='mediums'>Mediums</label>
-                            <input type='text' name='mediums' onChange={this.handleSubmit}/>
+                            <br></br>
+                            <input type='text' name='mediums' onChange={(e) => this.setState({mediums: e.target.value})}/>
                         </div>
                         <div className='inspiration'>
                             <label htmlFor='inspiration'>Inspiration</label>
-                            <input type='text' name='inspiration' onChange={this.handleSubmit}/>
+                            <br></br>
+                            <input type='text' name='inspiration' onChange={(e) => this.setState({inspiration: e.target.value})}/>
                         </div>
                         <div className='achievements'>
                             <label htmlFor='achievements'>Achievements</label>
-                            <input type='text' name='achievements' onChange={this.handleSubmit}/>
+                            <br></br>
+                            <input type='text' name='achievements' onChange={(e) => this.setState({achievements: e.target.value})}/>
                         </div>
                         <div className='website'>
                             <label htmlFor='website'>Website</label>
-                            <input type='text' name='website' onChange={this.handleSubmit}/>
+                            <br></br>
+                            <input type='text' name='website' onChange={(e) => this.setState({website: e.target.value})}/>
                         </div>
+                        <br></br>
                         <div className='submit'>
                             <button>Create My Profile</button>
                         </div>
