@@ -3,7 +3,6 @@ import ArtistProfileCreate from './ArtistProfileCreate'
 import ArtistProfileTable from './ArtistProfileTable'
 import { IArtistProfileResponse } from './Interfaces';
 
-
 //need to add ternary to not show create form if there's already an artist table
 
 export interface IndexProps {

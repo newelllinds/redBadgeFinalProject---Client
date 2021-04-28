@@ -2,11 +2,13 @@ import React from 'react';
 import NavBar from './NavBar'
 import ArtistProfileCreate from '../ArtistProfile/ArtistProfileCreate'
 import ArtistIndex from '../ArtistProfile/ArtistIndex'
+import ShopIndex from '../Shop/ShopIndex'
 
 //add router
 
 export interface HomePageProps {
     token: string
+    // clearToken: Function
     
 }
  
@@ -22,8 +24,9 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
     render() { 
         return (
             <div>
-                <NavBar />
+                <NavBar/>
                 <ArtistIndex token={this.props.token}/>
+                <ShopIndex token={this.props.token}/>
             </div>
           );
     }

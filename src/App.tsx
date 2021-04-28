@@ -42,8 +42,6 @@ class App extends React.Component<AppProps, AppState> {
   //   })
   // }
 
-//clear token for logout button
-
   protectedViews = () => {
     return localStorage.getItem('token') ? (
       <HomePage token={this.state.sessionToken}/>
@@ -51,7 +49,6 @@ class App extends React.Component<AppProps, AppState> {
       <Auth updateToken={this.updateToken} />
     )
   }
-
 
   render() { 
     return (

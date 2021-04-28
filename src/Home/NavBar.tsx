@@ -21,6 +21,14 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
         this.state = {};
     }
 
+    //look for JS hard refresh and run between line 29-30
+    clearToken = () => {
+      localStorage.clear();
+      this.setState({
+        sessionToken: ''
+      })
+    }
+
     render() { 
         return (
           <div>
@@ -37,7 +45,7 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
             </NavItem>
             <NavItem>
               {/* <NavLink disabled href="#">Disabled Link</NavLink> */}
-              {/* <Button className='logout' onClick={this.props.clearToken}>Logout</Button> */}
+              <Button className='logout' onClick= {()=> this.clearToken()}>Logout</Button>
             </NavItem>
           </Nav>
           <hr />
