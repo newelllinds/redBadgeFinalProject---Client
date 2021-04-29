@@ -24,9 +24,11 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
     //look for JS hard refresh and run between line 29-30
     clearToken = () => {
       localStorage.clear();
-      this.setState({
-        sessionToken: ''
-      })
+      this.pageRefresh();
+    }
+
+    pageRefresh = () => {
+      window.location.reload(true);
     }
 
     render() { 

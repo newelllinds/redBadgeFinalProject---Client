@@ -4,13 +4,13 @@ import DisplayShopListing from './DisplayShopListing';
 import { CardColumns } from 'reactstrap';
 
 
-export interface CreateShopProps {
+export interface CreateShopListingProps {
     token: string;
     fetchShopListings: Function
     
 }
  
-export interface CreateShopState {
+export interface CreateShopListingState {
     // shopListing: IShopListingResponse[]
     image: string,
     description: string,
@@ -18,8 +18,8 @@ export interface CreateShopState {
     pickup_info: string
 }
  
-class CreateShop extends React.Component<CreateShopProps, CreateShopState> {
-    constructor(props: CreateShopProps) {
+class CreateShopListing extends React.Component<CreateShopListingProps, CreateShopListingState> {
+    constructor(props: CreateShopListingProps) {
         super(props);
         this.state = {
             // shopListing: []
@@ -66,15 +66,10 @@ class CreateShop extends React.Component<CreateShopProps, CreateShopState> {
 
     render() { 
         return (
-            // <div>
-            // <CardColumns>
-            // {this.displayCards}
-            // </CardColumns>
-            // </div>
             <div className='profile-create-wrapper'>
                 <div className='profile-create-form-wrapper'>
                     <h2>Create Your Sale Listing</h2>
-                </div>     <form onSubmit={this.handleSubmit} >
+                    <form onSubmit={this.handleSubmit} >
                         <div className='about_the_artist'>
                             <label htmlFor='about_the_artist'>Image</label>
                             <br></br>
@@ -101,8 +96,9 @@ class CreateShop extends React.Component<CreateShopProps, CreateShopState> {
                         </div>
                     </form>
                 </div>
+            </div>
         );
     }
 }
  
-export default CreateShop;
+export default CreateShopListing;
