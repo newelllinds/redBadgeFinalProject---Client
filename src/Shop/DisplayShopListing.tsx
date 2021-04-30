@@ -3,11 +3,12 @@ import {Card, Button, CardImg, CardTitle, CardText, CardSubtitle, CardBody} from
 import CreateShopListing from '../Shop/CreateShopListing'
 import { IShopListingResponse } from '../ArtistProfile/Interfaces';
 // import { ShopTable } from './ShopTable'
+import EditShopListing from './EditShopListing'
 
 
 export interface DisplayShopListingProps {
-    // token: string,
-    // fetchShopListings: Function,
+    token: string,
+    fetchShopListings: Function,
     // shopListing: IShopListingResponse[]
     listing: IShopListingResponse
     
@@ -22,6 +23,21 @@ class DisplayShopListing extends React.Component<DisplayShopListingProps, Displa
         super(props);
         this.state = {};
     }
+
+    deleteShopListing = () => {
+      let token = this.props.token ? this.props.token : localStorage.getItem('token')
+      fetch(`http://localhost:3000/listing/delete-listing/${this.props.listing.id}`,
+      {
+      method: 'DELETE',
+      headers: new Headers({
+          'Content-Type': 'application/json',
+          'Authorization': token? token: ''
+      })
+  }).then(() => this.props.fetchShopListings())
+  console.log(this.props.listing.id)
+}
+      
+
     render() { 
         return ( 
             <div>
@@ -34,8 +50,9 @@ class DisplayShopListing extends React.Component<DisplayShopListingProps, Displa
                 <CardText>Description: {this.props.listing.description}<br></br>
                 Pick Up Information: {this.props.listing.pickup_info}</CardText>
                 <Button>Visit Artist's Shop</Button>
-                {/* <ArtistProfileEdit token = {this.props.token} profile = {this.props.artistProfile[0]} fetchArtistProfile = {this.props.fetchArtistProfile}/>
-                <Button onClick={(e) => this.deleteArtistProfile()}>Delete Artist Profile</Button> */}
+                <EditShopListing token = {this.props.token} listing = {this.props.listing} fetchShopListings = {this.props.fetchShopListings}/>
+                <Button onClick={(e) => this.deleteShopListing()}>Delete Shop Listing</Button>
+          
               </CardBody>
             </Card>
           </div>

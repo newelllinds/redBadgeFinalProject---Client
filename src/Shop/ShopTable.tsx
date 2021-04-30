@@ -38,7 +38,7 @@ class ShopTable extends React.Component<ShopTableProps, ShopTableState> {
             {this.props.shopListing.length > 0 ? (
               this.props.shopListing.map(
                 (listing: IShopListingResponse, index: number) => (
-                  <DisplayShopListing listing={listing} key={index}/>
+                  <DisplayShopListing fetchShopListings={this.props.fetchShopListings} token={this.props.token} listing={listing} key={index}/>
                 )
               )
             ) : (
