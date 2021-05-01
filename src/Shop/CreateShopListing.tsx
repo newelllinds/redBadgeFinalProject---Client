@@ -12,10 +12,11 @@ export interface CreateShopListingProps {
  
 export interface CreateShopListingState {
     // shopListing: IShopListingResponse[]
-    image: string,
+    image: any,
     description: string,
     price: Number,
-    pickup_info: string
+    pickup_info: string,
+    loading: boolean
 }
  
 class CreateShopListing extends React.Component<CreateShopListingProps, CreateShopListingState> {
@@ -26,8 +27,58 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
             image: '',
             description: '',
             price: 0,
-            pickup_info: ''
+            pickup_info: '',
+            loading: false
         };
+    }
+
+    uploadImage = async (e: Event) => {
+        let target = e.target as HTMLInputElement
+        const files: File = (target.files as FileList)[0]
+        const data = new FormData()
+        data.append('file', files)
+        data.append('upload_preset', 'artapp')
+        this.setState({
+            loading: true
+        })
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/dzbspjqw7/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
+        ) 
+        const file = await res.json
+            console.log(res)
+        this.setState({
+            // image: file.secure_url
+        })
+        console.log(file)
+        this.setState({
+            loading: false
+        })
+
+
+        // async componentDidMount() {
+        //     const res = await fetch(
+        //         'https://api.cloudinary.com/v1_1/dzbspjqw7',
+        //         {
+        //             method: 'POST',
+        //             body: data
+        //         }
+        //     ) 
+        //     const file = await res.json
+        //     this.setState({
+        //         image: file.secure_url
+        //         console.log(file.secure_url)
+        //     })
+        //     this.setState({
+        //         loading: false
+        //     })
+            
+        // }
+
+
     }
 
     handleSubmit = (event: React.FormEvent) => {
@@ -70,11 +121,21 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
                 <div className='profile-create-form-wrapper'>
                     <h2>Create Your Sale Listing</h2>
                     <form onSubmit={this.handleSubmit} >
-                        <div className='about_the_artist'>
+                    <div className='about_the_artist'>
+                            <label htmlFor='about_the_artist'>Upload Image</label>
+                            <br></br>
+                            <input type='file' name='about_the_artist' onChange={(e) => this.uploadImage}/>
+                            { this.state.loading ? (
+                            <h3>Loading...</h3>
+                            ) : (
+                                <img src={this.state.image} alt='' style={{ width: '100px'}} />
+                            )}
+                        </div>
+                        {/* <div className='about_the_artist'>
                             <label htmlFor='about_the_artist'>Image</label>
                             <br></br>
                             <input type='text' name='about_the_artist' onChange={(e) => this.setState({image: e.target.value})}/>
-                        </div>
+                        </div> */}
                         <div className='mediums'>
                             <label htmlFor='mediums'>Description</label>
                             <br></br>

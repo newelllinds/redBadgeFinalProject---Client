@@ -1,8 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
+import { FunctionOrConstructorTypeNode } from 'typescript';
 
 export interface LoginProps {
-    updateToken: Function;
+    updateToken: Function,
+    updateRole: Function
 }
  
 export interface LoginState {
@@ -67,6 +69,8 @@ class Login extends Component<LoginProps, LoginState> {
         .then(data => {
             console.log(data)
             console.log(data.sessionToken)
+            console.log(data.user.role)
+            this.props.updateRole(data.user.role)
             this.props.updateToken(data.sessionToken)
             let checkToken = data.sessionToken;
             if (checkToken === undefined){

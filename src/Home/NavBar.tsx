@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+
 export interface NavBarProps {
   // clearToken: Function
 }
@@ -21,7 +22,6 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
         this.state = {};
     }
 
-    //look for JS hard refresh and run between line 29-30
     clearToken = () => {
       localStorage.clear();
       this.pageRefresh();

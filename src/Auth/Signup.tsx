@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 interface SignupProps {
-    updateToken: Function;
+    updateToken: Function,
+    updateRole: Function
 }
 
 interface SignupState {
@@ -67,6 +68,7 @@ class Signup extends Component<SignupProps, SignupState> {
             .then(data => {
                 console.log(data)
                 console.log(data.sessionToken)
+                this.props.updateRole(data.user.role)
                 this.props.updateToken(data.sessionToken)
                 let checkToken = data.sessionToken;
                 if (checkToken === undefined){

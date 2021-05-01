@@ -2,6 +2,7 @@ import React from 'react';
 import ArtistProfileCreate from './ArtistProfileCreate'
 import ArtistProfileTable from './ArtistProfileTable'
 import { IArtistProfileResponse } from './Interfaces';
+// import ShopIndex from '../Shop/CreateShopListing'
 
 //need to add ternary to not show create form if there's already an artist table
 
@@ -57,12 +58,19 @@ class Index extends React.Component<IndexProps, IndexState> {
         console.log(this.state.artistProfile)
         return (
             <div>
-                <ArtistProfileCreate token={this.props.token} fetchArtistProfile={this.fetchArtistProfile}/>
+                {/* <ArtistProfileCreate token={this.props.token} fetchArtistProfile={this.fetchArtistProfile}/> */}
                 {this.state.artistProfile.length > 0 ? 
-                <ArtistProfileTable token={this.props.token} artistProfile={this.state.artistProfile} fetchArtistProfile={this.fetchArtistProfile}/> : null}
+                <ArtistProfileTable token={this.props.token} artistProfile={this.state.artistProfile} fetchArtistProfile={this.fetchArtistProfile}/> : <ArtistProfileCreate token={this.props.token} fetchArtistProfile={this.fetchArtistProfile}/>}
+                {/* <ShopIndex token={this.props.token}/> */}
             </div>
           );
     }
 }
  
+//if sttement to check artistprofile.length again to show table, i
+
+//if this.state.artistProfile.length > 0 ?
+//return <ArtistProfileTable>
+//else 
+//return <ArtistProfileCreate>
 export default Index;

@@ -19,12 +19,15 @@ export interface AppProps {
  
 export interface AppState {
   sessionToken: string,
+  role: Number
 }
  
 class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
-    this.state = { sessionToken : '' };
+    this.state = { 
+      sessionToken : '',
+      role: 0 };
   }
 
   updateToken = (newToken: string) => {
@@ -35,18 +38,19 @@ class App extends React.Component<AppProps, AppState> {
     })
   }
 
-  // clearToken = () => {
-  //   localStorage.clear();
-  //   this.setState({
-  //     sessionToken: ''
-  //   })
-  // }
+  updateRole = (userRole: Number) => {
+    localStorage.setItem('role' , JSON.stringify(userRole))
+    console.log(userRole)
+    this.setState({
+      role: userRole
+    })
+  }
 
   protectedViews = () => {
     return localStorage.getItem('token') ? (
-      <HomePage token={this.state.sessionToken}/>
+      <HomePage token={this.state.sessionToken} role={this.state.role}/>
     ) : (
-      <Auth updateToken={this.updateToken} />
+      <Auth updateToken={this.updateToken} updateRole={this.updateRole}/>
     )
   }
 

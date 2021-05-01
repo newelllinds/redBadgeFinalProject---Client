@@ -3,7 +3,8 @@ import Signup from './Signup';
 import Login from './Login'
 
 export interface AuthProps {
-    updateToken: Function
+    updateToken: Function,
+    updateRole: Function
     
 }
  
@@ -30,9 +31,9 @@ class Auth extends React.Component<AuthProps, AuthState> {
         return (
             <div>
                 {this.state.showLogin ? (
-                <Signup updateToken={this.props.updateToken} />
+                <Signup updateToken={this.props.updateToken} updateRole={this.props.updateRole}/>
                 ) : (
-                <Login updateToken={this.props.updateToken} />
+                <Login updateToken={this.props.updateToken} updateRole={this.props.updateRole}/>
                 )}
                 <div>
                     {this.state.showLogin ? (
