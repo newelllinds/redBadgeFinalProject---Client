@@ -4,7 +4,7 @@ import ShopTable from './ShopTable';
 import { IShopListingResponse } from '../ArtistProfile/Interfaces'
 
 export interface ShopIndexProps {
-    token: string
+    token: string,
 }
  
 export interface ShopIndexState {

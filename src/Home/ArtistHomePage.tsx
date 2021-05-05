@@ -3,8 +3,7 @@ import ArtistIndex from '../ArtistProfile/ArtistIndex'
 import ShopIndex from '../Shop/ShopIndex'
 
 export interface ArtistHomePageProps {
-    token: string
-    
+    token: string    
 }
  
 export interface ArtistHomePageState {

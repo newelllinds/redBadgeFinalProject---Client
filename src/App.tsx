@@ -5,10 +5,16 @@ import './App.css';
 import Auth from './Auth/Auth'
 import HomePage from './Home/HomePage'
 import NavBar from './Home/NavBar'
-import {Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import Header from './Home/Header'
 import Footer from './Home/Footer'
 import ArtistProfileCreate from './ArtistProfile/ArtistProfileCreate';
+import ArtistProfileTable from './ArtistProfile/ArtistProfileTable';
+import DisplayAllShopListings from './Supporter/DisplayAllShopListings';
+import ArtistIndex from './ArtistProfile/ArtistIndex'
+import ShopIndex from './Shop/ShopIndex'
+import DisplayShopListing from './Shop/DisplayShopListing'
+import FetchAllShopListings from './Supporter/FetchAllShopListings';
 
 //Add browser router
 
@@ -57,14 +63,32 @@ class App extends React.Component<AppProps, AppState> {
   render() { 
     return (
       <div>
+        <Router>
         <Header />
-        {/* <ArtistProfileCreate token = {this.state.sessionToken} /> */}
-
+        {/* <NavBar /> */}
         {this.protectedViews()}
+        <Switch>
+          {/* <Route exact path= '/'>
+          {this.protectedViews()} */}
+          {/* </Route> */}
+
+        {/* <Route exact path='/artist/view-profile' component={ArtistIndex}/> */}
+          {/* <Route exact path='/artist/view-profile' >
+            {this.state.sessionToken ? <ArtistIndex token={this.state.sessionToken}/> : <Redirect to='/'/>}
+          </Route> */}
+
+          {/* <Route exact path='/listing/view-my-listings'>
+          {this.state.sessionToken ? <ShopIndex token={this.state.sessionToken}/> : <Redirect to='/'/>}
+          </Route> */}
+
+          <Route exact path='/listing/view-all-listings' component={FetchAllShopListings} />
+        </Switch>
+
 
         <Footer />
-
+        </Router>
       </div>
+      
       );
   }
 }

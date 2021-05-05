@@ -1,8 +1,5 @@
 import * as React from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, CardColumns
-  } from 'reactstrap';
+import { CardColumns } from 'reactstrap';
   import { IShopListingResponse } from '../ArtistProfile/Interfaces'
 import DisplayShopListing from './DisplayShopListing';
 // import { CreateShopListing } from './CreateShopListing';
@@ -11,8 +8,7 @@ export interface ShopTableProps {
     token: string,
     fetchShopListings: Function,
     shopListing: IShopListingResponse[]
-    // image: string,
-    // description: string,
+     // description: string,
     // // price: Number,
     // pickup_info: string
 }

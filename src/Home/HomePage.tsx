@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar'
-import ArtistProfileCreate from '../ArtistProfile/ArtistProfileCreate'
 import ArtistHomePage from './ArtistHomePage'
+import SupporterHomePage from './SupporterHomePage';
 // import ArtistIndex from '../ArtistProfile/ArtistIndex'
 // import ShopIndex from '../Shop/ShopIndex'
 
@@ -18,7 +18,7 @@ import ArtistHomePage from './ArtistHomePage'
 export interface HomePageProps {
     token: string,
     role: Number
-    // clearToken: Function
+        // clearToken: Function
     
 }
  
@@ -36,7 +36,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
         if (localStorage.getItem('role') === '2') {
             return <ArtistHomePage token={this.props.token}/>
         } else if (localStorage.getItem('role') === '3') {
-            return 'Hello, User!'
+            return <SupporterHomePage token={this.props.token}/>
         }
     }
 

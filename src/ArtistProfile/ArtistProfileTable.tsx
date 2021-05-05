@@ -35,10 +35,12 @@ class ArtistProfileTable extends React.Component<ArtistProfileTableProps, Artist
         })
     }).then(() => this.props.fetchArtistProfile())
     console.log(this.props.artistProfile[0].id)
+  
   }
 
     render() { 
-        console.log(this.props.artistProfile[0].about_the_artist)
+      console.log(this.props.artistProfile)
+        // console.log(this.props.artistProfile[0].about_the_artist)
         return (
             <div className='wrapper'>
             <Card className='profile-display-form-wrapper'>

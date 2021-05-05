@@ -12,7 +12,7 @@ export interface CreateShopListingProps {
  
 export interface CreateShopListingState {
     // shopListing: IShopListingResponse[]
-    image: any,
+    image: string,
     description: string,
     price: Number,
     pickup_info: string,
@@ -32,8 +32,8 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
         };
     }
 
-    uploadImage = async (e: Event) => {
-        let target = e.target as HTMLInputElement
+    uploadImage = async (e: React.ChangeEvent<HTMLInputElement>|React.FormEvent<HTMLFormElement>) => {
+        let target = (e.target as HTMLInputElement)
         const files: File = (target.files as FileList)[0]
         const data = new FormData()
         data.append('file', files)
@@ -48,12 +48,12 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
                 body: data
             }
         ) 
-        const file = await res.json
-            console.log(res)
+        const file = await res.json()
+            // console.log(res)
         this.setState({
-            // image: file.secure_url
+            image: file.secure_url
         })
-        console.log(file)
+        console.log(file.secure_url)
         this.setState({
             loading: false
         })
@@ -124,7 +124,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
                     <div className='about_the_artist'>
                             <label htmlFor='about_the_artist'>Upload Image</label>
                             <br></br>
-                            <input type='file' name='about_the_artist' onChange={(e) => this.uploadImage}/>
+                            <input type='file' name='about_the_artist' onChange={this.uploadImage}/>
                             { this.state.loading ? (
                             <h3>Loading...</h3>
                             ) : (

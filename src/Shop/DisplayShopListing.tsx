@@ -10,7 +10,7 @@ export interface DisplayShopListingProps {
     token: string,
     fetchShopListings: Function,
     // shopListing: IShopListingResponse[]
-    listing: IShopListingResponse
+    listing: IShopListingResponse,
     
 }
  
@@ -43,7 +43,7 @@ class DisplayShopListing extends React.Component<DisplayShopListingProps, Displa
             <div>
                             <div className='shop-listing-wrapper'>
             <Card className='shop-listing-form-wrapper'>
-              <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+              <CardImg top width="100%" src={this.props.listing.image} alt="Card image cap" />
               <CardBody>
                 {/* <CardTitle tag="h5">Artist Profile</CardTitle> */}
                 {/* <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.price}</CardSubtitle> */}
