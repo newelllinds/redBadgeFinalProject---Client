@@ -88,7 +88,7 @@ class Signup extends Component<SignupProps, SignupState> {
         const {errors} = this.state
         return (
             <div className='siteName'>
-            <h4 className='text-center'>Indy Art Store</h4>
+            {/* <h4 className='text-center'>Indy Art Store</h4> */}
             <div className='wrapper'>
                 <div className='form-wrapper'>
                     <h2>Sign Up</h2>

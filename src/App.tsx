@@ -1,26 +1,19 @@
 import React from 'react';
 import './App.css';
-// import Signup from './Auth/Signup'
-// import Login from './Auth/Login'
 import Auth from './Auth/Auth'
 import HomePage from './Home/HomePage'
 import NavBar from './Home/NavBar'
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import Header from './Home/Header'
 import Footer from './Home/Footer'
-import ArtistProfileCreate from './ArtistProfile/ArtistProfileCreate';
-import ArtistProfileTable from './ArtistProfile/ArtistProfileTable';
-import DisplayAllShopListings from './Supporter/DisplayAllShopListings';
 import ArtistIndex from './ArtistProfile/ArtistIndex'
 import ShopIndex from './Shop/ShopIndex'
-import DisplayShopListing from './Shop/DisplayShopListing'
 import FetchAllShopListings from './Supporter/FetchAllShopListings';
-
-//Add browser router
+import FetchAllArtistProfiles from './Supporter/FetchAllArtistProfiles';
+import FetchArtistShop from './Supporter/FetchArtistShop';
 
 
 export interface AppProps {
-
 }
  
 export interface AppState {
@@ -65,23 +58,33 @@ class App extends React.Component<AppProps, AppState> {
       <div>
         <Router>
         <Header />
-        {/* <NavBar /> */}
-        {this.protectedViews()}
+        <NavBar />
+        {/* {this.protectedViews()} */}
         <Switch>
-          {/* <Route exact path= '/'>
-          {this.protectedViews()} */}
-          {/* </Route> */}
+          <Route exact path= '/'>
+           {this.protectedViews()}
+          </Route>
 
         {/* <Route exact path='/artist/view-profile' component={ArtistIndex}/> */}
-          {/* <Route exact path='/artist/view-profile' >
+          <Route exact path='/artist/view-profile' >
             {this.state.sessionToken ? <ArtistIndex token={this.state.sessionToken}/> : <Redirect to='/'/>}
-          </Route> */}
+          </Route>
 
-          {/* <Route exact path='/listing/view-my-listings'>
+          <Route exact path='/listing/view-my-listings'>
           {this.state.sessionToken ? <ShopIndex token={this.state.sessionToken}/> : <Redirect to='/'/>}
-          </Route> */}
+          </Route>
 
-          <Route exact path='/listing/view-all-listings' component={FetchAllShopListings} />
+          <Route exact path='/listing/view-all-listings'>
+            {this.state.sessionToken ? <FetchAllShopListings token={this.state.sessionToken}/> : <Redirect to='/'/>}
+            </Route>
+
+            <Route exact path='/artist/view-artist-profiles'>
+              {this.state.sessionToken ? <FetchAllArtistProfiles token={this.state.sessionToken}/> : <Redirect to='/'/>}
+            </Route>
+
+            <Route exact path='listing/view-artist-shop/:id'>
+              {/* {this.state.sessionToken ? <FetchArtistShop token={this.state.sessionToken}/> : <Redirect to='/'/>} */}
+            </Route>
         </Switch>
 
 

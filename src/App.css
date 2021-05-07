@@ -123,15 +123,26 @@ input[name="website"] {
 
 .profile-display-form-wrapper {
   display: flex;
+  margin-top: 10%;
   /* flex-direction: column; */
-  width: 280px;
+  width: 500px;
   max-width: 80%;
-  min-width: 100px;
-  min-height: 400px;
-  /* padding: 20px 40px; */
+  /* min-width: 100px;
+  min-height: 400px; */
+  padding: 20px 40px;
   border-radius: 6px;
-  box-shadow: 0px 8px 36px #222;
+  box-shadow: 0px 8px 36px#05324c;
   background-color: #fefefe;
+}
+
+.profile-display-form-wrapper > h2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  font-weight: lighter;
+  color: #05324c;
+  padding-bottom: 20px;
 }
 
 .form-wrapper > h2 {

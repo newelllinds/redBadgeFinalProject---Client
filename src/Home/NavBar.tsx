@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { IArtistProfileResponse } from '../ArtistProfile/Interfaces';
+import ProtectedNavBar from './ProtectedNavBar';
 
 
 export interface NavBarProps {
@@ -35,6 +36,11 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
       window.location.reload(true);
     }
 
+    protectedNav = () => {
+      return localStorage.getItem('role') === '2' ? <ProtectedNavBar />
+      : null
+    }
+
     // componentDidMount() {
     //   const role = localStorage.getItem('role')
     //   if (role) {
@@ -46,27 +52,21 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
         return (
           <div>
           <h4 className='text-center'>Indy Art Store</h4>
-          {/* { this.state.role === '2' ? 
-          <Nav>
-            <NavItem>
-              <Link to='/artist/view-profile'>
-              <NavLink>View Your Artist Profile</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-            <Link to='/listing/view-my-listings'>
-              <NavLink>View Your Shop</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Another Link</NavLink>
-            </NavItem>
-            <NavItem>
-              <Button className='logout' onClick= {()=> this.clearToken()}>Logout</Button>
-            </NavItem>
-          </Nav> 
-           :  */}
     <Nav>
+    {/* { localStorage.getItem('role') ==='2' ? 
+      
+      <NavItem>
+        <Link to='/artist/view-profile'>
+        <NavLink>View Your Artist Profile</NavLink>
+        </Link>
+      </NavItem>
+      <NavItem>
+      <Link to='/listing/view-my-listings'>
+        <NavLink>View Your Shop</NavLink>
+        </Link>
+      </NavItem>
+     : null } */}
+    {this.protectedNav()}
     {/* <NavItem>
       <Link to='/artist/view-artist-profiles'>
       <NavLink>View Artist Profiles</NavLink>
@@ -78,8 +78,15 @@ class NavBar extends React.Component<NavBarProps, NavBarState> {
       </Link>
     </NavItem>
     <NavItem>
+    <Link to='/artist/view-artist-profiles'>
+      <NavLink>View Artists</NavLink>
+      </Link>
+    </NavItem>
+    {localStorage.getItem('token') !== null ? 
+    <NavItem>
       <Button className='logout' onClick= {()=> this.clearToken()}>Logout</Button>
     </NavItem>
+    : null}
   </Nav>
           <hr />
         </div>

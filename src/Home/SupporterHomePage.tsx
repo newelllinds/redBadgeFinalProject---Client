@@ -1,5 +1,6 @@
 import * as React from 'react';
 import FetchAllShopListings from '../Supporter/FetchAllShopListings'
+import FetchAllArtistProfiles from '../Supporter/FetchAllArtistProfiles'
 
 export interface SupporterHomePageProps {
     token: string
@@ -19,6 +20,7 @@ class SupporterHomePage extends React.Component<SupporterHomePageProps, Supporte
         return (
             <div>
                 <FetchAllShopListings token={this.props.token}/>
+                {/* <FetchAllArtistProfiles token={this.props.token}/> */}
             </div>
           );
     }

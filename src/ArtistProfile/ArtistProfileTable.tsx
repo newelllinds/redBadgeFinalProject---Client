@@ -46,7 +46,7 @@ class ArtistProfileTable extends React.Component<ArtistProfileTableProps, Artist
             <Card className='profile-display-form-wrapper'>
               {/* <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" /> */}
               <CardBody>
-                <CardTitle tag="h5">Artist Profile</CardTitle>
+                <CardTitle tag="h2">Artist Profile</CardTitle>
                 <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.artistProfile[0].mediums}</CardSubtitle>
                 <CardText>About the Artist: {this.props.artistProfile[0].about_the_artist}<br></br>
                 Inspiration: {this.props.artistProfile[0].inspiration}<br></br>Achievements: {this.props.artistProfile[0].achievements}<br></br>Website: {this.props.artistProfile[0].website}</CardText>

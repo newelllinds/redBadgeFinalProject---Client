@@ -53,7 +53,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
     render() { 
         return (
             <div>
-                <NavBar/>
+                {/* <NavBar/> */}
                 {this.roleChecker()}
 
                 {/* <ArtistIndex token={this.props.token}/>

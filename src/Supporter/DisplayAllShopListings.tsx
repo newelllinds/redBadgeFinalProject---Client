@@ -30,7 +30,7 @@ class DisplayAllShopListings extends React.Component<DisplayAllShopListingsProps
 {/* <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.price}</CardSubtitle> */}
 <CardText>Description: {this.props.listing.description}<br></br>
 Pick Up Information: {this.props.listing.pickup_info}</CardText>
-<Button>Visit Artist's Shop</Button>
+{/* <Button>Visit Artist's Profile</Button> */}
 </CardBody>
 </Card>
 </div>
