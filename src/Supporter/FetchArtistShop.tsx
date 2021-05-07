@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { IArtistShopResponse } from '../ArtistProfile/Interfaces'
 import ArtistShopMapper from './ArtistShopMapper'
+import DisplayAllArtistProfiles from './DisplayAllArtistProfiles'
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-export interface FetchArtistShopProps {
-    token: string,
-    artistShop: IArtistShopResponse
+export interface FetchArtistShopProps extends RouteComponentProps<{id: string}> {
+    token: string
 }
  
 export interface FetchArtistShopState {
@@ -19,9 +20,10 @@ class FetchArtistShop extends React.Component<FetchArtistShopProps, FetchArtistS
         };
     }
 
-    fetchArtistShop = () => {
+    fetchArtistShop = (id: string) => {
+        debugger
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch(`http://localhost:3000/listing/view-artist-shop/${this.props.artistShop.userId}`, {
+        fetch(`http://localhost:3000/listing/view-artist-shop/${id}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -38,7 +40,8 @@ class FetchArtistShop extends React.Component<FetchArtistShopProps, FetchArtistS
     }
 
     componentDidMount() {
-        this.fetchArtistShop()
+        const id = this.props.match.params.id
+        this.fetchArtistShop(id)
     }
 
     render() { 
@@ -50,4 +53,4 @@ class FetchArtistShop extends React.Component<FetchArtistShopProps, FetchArtistS
     }
 }
  
-export default FetchArtistShop;
+export default withRouter (FetchArtistShop);

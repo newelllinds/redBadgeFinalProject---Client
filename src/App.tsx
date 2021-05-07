@@ -82,8 +82,8 @@ class App extends React.Component<AppProps, AppState> {
               {this.state.sessionToken ? <FetchAllArtistProfiles token={this.state.sessionToken}/> : <Redirect to='/'/>}
             </Route>
 
-            <Route exact path='listing/view-artist-shop/:id'>
-              {/* {this.state.sessionToken ? <FetchArtistShop token={this.state.sessionToken}/> : <Redirect to='/'/>} */}
+            <Route exact path='/listing/view-artist-shop/:id'>
+              {this.state.sessionToken ? <FetchArtistShop token={this.state.sessionToken}/> : <Redirect to='/'/>}
             </Route>
         </Switch>
 

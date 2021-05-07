@@ -4,7 +4,8 @@ export interface IArtistProfileResponse {
     mediums: string,
     inspiration: string,
     achievements: string,
-    website: string
+    website: string,
+    userId: number
 }
 
 export interface IShopListingResponse {

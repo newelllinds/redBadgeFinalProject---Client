@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { IArtistProfileResponse } from '../ArtistProfile/Interfaces'
+import { IArtistProfileResponse, IArtistShopResponse } from '../ArtistProfile/Interfaces'
 import ArtistProfileMapper from './ArtistProfileMapper'
 
 export interface FetchAllArtistProfilesProps {
-    token: string
+    token: string,
 }
  
 export interface FetchAllArtistProfilesState {

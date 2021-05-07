@@ -6,9 +6,7 @@ import {Link} from 'react-router-dom';
 export interface DisplayAllArtistProfilesProps {
     token: string,
     fetchAllArtistProfiles: Function,
-    profile: IArtistProfileResponse,
-    artistShop: IArtistShopResponse
-    
+    profile: IArtistProfileResponse    
 }
  
 export interface DisplayAllArtistProfilesState {
@@ -30,7 +28,7 @@ class DisplayAllArtistProfiles extends React.Component<DisplayAllArtistProfilesP
                 <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.profile.mediums}</CardSubtitle>
                 <CardText>About the Artist: {this.props.profile.about_the_artist}<br></br>
                 Inspiration: {this.props.profile.inspiration}<br></br>Achievements: {this.props.profile.achievements}<br></br>Website: {this.props.profile.website}</CardText>
-                <Link to={`/listing/view-artist-shop/${this.props.artistShop.userId}`}>
+                <Link to={`/listing/view-artist-shop/${this.props.profile.userId}`}>
                 <Button>Visit Artist's Shop</Button>
                 </Link>
                 {/* //pass id to new component and place it in the fetch {this.props.profile.id} do an interface for the info unless I can use the one I used for the cards - fetch component and map component - cards */}
