@@ -51,7 +51,7 @@ class ArtistProfileTable extends React.Component<ArtistProfileTableProps, Artist
                 <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.artistProfile[0].mediums}</CardSubtitle>
                 <CardText>About the Artist: {this.props.artistProfile[0].about_the_artist}<br></br>
                 Inspiration: {this.props.artistProfile[0].inspiration}<br></br>Achievements: {this.props.artistProfile[0].achievements}<br></br>Website: {this.props.artistProfile[0].website}</CardText>
-                <Button>Visit Artist's Shop</Button>
+                {/* <Button>Visit Artist's Shop</Button> */}
                 <ArtistProfileEdit token = {this.props.token} profile = {this.props.artistProfile[0]} fetchArtistProfile = {this.props.fetchArtistProfile}/>
                 <Button onClick={(e) => this.deleteArtistProfile()}>Delete Artist Profile</Button>
               </CardBody>

@@ -50,7 +50,7 @@ class DisplayShopListing extends React.Component<DisplayShopListingProps, Displa
                 {/* <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.price}</CardSubtitle> */}
                 <CardText>Description: {this.props.listing.description}<br></br>
                 Pick Up Information: {this.props.listing.pickup_info}</CardText>
-                <Button>Visit Artist's Shop</Button>
+                {/* <Button>Visit Artist's Shop</Button> */}
                 <EditShopListing token = {this.props.token} listing = {this.props.listing} fetchShopListings = {this.props.fetchShopListings}/>
                 <Button onClick={(e) => this.deleteShopListing()}>Delete Shop Listing</Button>
           

@@ -68,22 +68,22 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
                         <Form onSubmit={this.UpdateProfile}>
                             <FormGroup>
                                 <Label htmlFor="about-the-artist">Edit About the Artist:</Label>
-                                <Input name="about-the-artist" value={this.props.profile.about_the_artist} onChange={(e) => this.setState({about_the_artist: e.target.value})}/>
+                                <Input name="about-the-artist" value={this.state.about_the_artist} onChange={(e) => this.setState({about_the_artist: e.target.value})}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="mediums">Edit Mediums:</Label>
-                                <Input name="mediums"  value={this.props.profile.mediums} onChange={(e) => this.setState({mediums: e.target.value})}/>
+                                <Input name="mediums"  value={this.state.mediums} onChange={(e) => this.setState({mediums: e.target.value})}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="inspiration">Edit Inspiration:</Label>
-                                <Input name="inspiration"  value={this.props.profile.inspiration} onChange={(e) => this.setState({inspiration: e.target.value})}/>
+                                <Input name="inspiration"  value={this.state.inspiration} onChange={(e) => this.setState({inspiration: e.target.value})}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="achievements">Edit Achievements:</Label>
-                                <Input name="achievements"  value={this.props.profile.achievements} onChange={(e) => this.setState({achievements: e.target.value})}/>
+                                <Input name="achievements"  value={this.state.achievements} onChange={(e) => this.setState({achievements: e.target.value})}/>
                             <FormGroup>
                                 <Label htmlFor="website">Edit Website:</Label>
-                                <Input name="inspiration"  value={this.props.profile.website} onChange={(e) => this.setState({website: e.target.value})}/>
+                                <Input name="inspiration"  value={this.state.website} onChange={(e) => this.setState({website: e.target.value})}/>
                             </FormGroup>
                         </FormGroup> 
             <Button color="primary" type='submit' onClick={this.toggle}>Submit Changes</Button>

@@ -16,7 +16,8 @@ export interface EditShopListingState {
     image: string,
     description: string,
     price: Number,
-    pickup_info: string
+    pickup_info: string,
+    loading: boolean
 
     
 }
@@ -29,8 +30,36 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
             description: this.props.listing.description,
             price: this.props.listing.price,
             pickup_info: this.props.listing.pickup_info,
-            modal: true
+            modal: true,
+            loading: false
         };
+    }
+
+    uploadNewImage = async (e: React.ChangeEvent<HTMLInputElement>|React.FormEvent<HTMLFormElement>) => {
+        let target = (e.target as HTMLInputElement)
+        const files: File = (target.files as FileList)[0]
+        const data = new FormData()
+        data.append('file', files)
+        data.append('upload_preset', 'artapp')
+        this.setState({
+            loading: true
+        })
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/dzbspjqw7/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
+        ) 
+        const file = await res.json()
+            // console.log(res)
+        this.setState({
+            image: file.secure_url
+        })
+        console.log(file.secure_url)
+        this.setState({
+            loading: false
+        })
     }
 
     UpdateShopListing = (event: any) => {
@@ -70,7 +99,12 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
                         <Form onSubmit={this.UpdateShopListing}>
                             <FormGroup>
                                 <Label htmlFor="about-the-artist">Edit Image:</Label>
-                                <Input name="about-the-artist" value={this.state.image} onChange={(e) => this.setState({image: e.target.value})}/>
+                                <Input type='file' name="about-the-artist" value={this.state.image} onChange={this.uploadNewImage}/>
+                                { this.state.loading ? (
+                                    <h3>Loading...</h3>
+                                ) : (
+                                    <img src={this.state.image} alt='' style={{width: '100px'}}/>
+                                )}
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="mediums">Edit Description:</Label>
