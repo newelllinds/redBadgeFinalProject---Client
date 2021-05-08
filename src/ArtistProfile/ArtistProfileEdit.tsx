@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import APIURL from '../helpers/environment'
+import { IArtistProfileResponse } from './Interfaces'
 
 export interface ArtistProfileEditProps {
     token:string,
     fetchArtistProfile: Function,
-    profile: any
+    profile: IArtistProfileResponse
 }
  
 export interface ArtistProfileEditState {
@@ -21,11 +22,11 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
     constructor(props: ArtistProfileEditProps) {
         super(props);
         this.state = {
-            about_the_artist: '',
-            mediums: '',
-            inspiration: '',
-            achievements: '',
-            website: '',
+            about_the_artist: this.props.profile.about_the_artist,
+            mediums: this.props.profile.mediums,
+            inspiration: this.props.profile.inspiration,
+            achievements: this.props.profile.achievements,
+            website: this.props.profile.website,
             modal: true
         };
     }

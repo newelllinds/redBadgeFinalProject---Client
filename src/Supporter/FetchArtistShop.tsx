@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { IArtistShopResponse } from '../ArtistProfile/Interfaces'
 import ArtistShopMapper from './ArtistShopMapper'
-import DisplayAllArtistProfiles from './DisplayAllArtistProfiles'
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import APIURL from '../helpers/environment'
 
