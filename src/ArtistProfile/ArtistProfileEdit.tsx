@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 export interface ArtistProfileEditProps {
     token:string,
@@ -33,7 +34,7 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
         event.preventDefault();
         console.log(this.props.profile)
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch(`http://localhost:3000/artist/update-profile/${this.props.profile.id}`, {
+        fetch(`${APIURL}/artist/update-profile/${this.props.profile.id}`, {
             method: 'PUT',
             body: JSON.stringify({artist: {about_the_artist: this.state.about_the_artist, mediums: this.state.mediums, inspiration: this.state.inspiration, achievements: this.state.achievements, website: this.state.website}}),
             headers: new Headers ({

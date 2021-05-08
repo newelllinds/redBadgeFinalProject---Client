@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { IArtistProfileResponse, IArtistShopResponse } from '../ArtistProfile/Interfaces'
-import ArtistProfileMapper from './ArtistProfileMapper'
+import ArtistProfileMapper from './ArtistProfileMapper';
+import APIURL from '../helpers/environment'
 
 export interface FetchAllArtistProfilesProps {
     token: string,
@@ -20,7 +21,7 @@ class FetchAllArtistProfiles extends React.Component<FetchAllArtistProfilesProps
 
     fetchAllArtistProfiles = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch('http://localhost:3000/artist/view-artist-profiles', {
+        fetch(`${APIURL}/artist/view-artist-profiles`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

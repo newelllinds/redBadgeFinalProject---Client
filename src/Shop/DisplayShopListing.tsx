@@ -4,6 +4,7 @@ import CreateShopListing from '../Shop/CreateShopListing'
 import { IShopListingResponse } from '../ArtistProfile/Interfaces';
 // import { ShopTable } from './ShopTable'
 import EditShopListing from './EditShopListing'
+import APIURL from '../helpers/environment'
 
 
 export interface DisplayShopListingProps {
@@ -26,7 +27,7 @@ class DisplayShopListing extends React.Component<DisplayShopListingProps, Displa
 
     deleteShopListing = () => {
       let token = this.props.token ? this.props.token : localStorage.getItem('token')
-      fetch(`http://localhost:3000/listing/delete-listing/${this.props.listing.id}`,
+      fetch(`${APIURL}/listing/delete-listing/${this.props.listing.id}`,
       {
       method: 'DELETE',
       headers: new Headers({

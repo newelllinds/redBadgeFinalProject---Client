@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import APIURL from '../helpers/environment'
 
 interface SignupProps {
     updateToken: Function,
@@ -57,7 +58,7 @@ class Signup extends Component<SignupProps, SignupState> {
             (val) => val.length > 0 && (validity = false)
         );
         if(validity === true){
-            fetch('http://localhost:3000/user/create', {
+            fetch(`${APIURL}/user/create`, {
                 method: 'POST',
                 body: JSON.stringify({user: {username: this.state.username, password: this.state.password, role: Number(this.state.role)}}),
                 headers: new Headers({

@@ -1,4 +1,5 @@
 import React from 'react';
+import APIURL from '../helpers/environment'
 
 export interface ArtistProfileCreateProps {
     token: string;
@@ -30,7 +31,7 @@ class ArtistProfileCreate extends React.Component<ArtistProfileCreateProps, Arti
         event.preventDefault();
         console.log(this.props.token)
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch('http://localhost:3000/artist/create-profile', {
+        fetch(`${APIURL}/artist/create-profile`, {
             method: 'POST',
             body: JSON.stringify({artist: {about_the_artist: this.state.about_the_artist, mediums: this.state.mediums, inspiration: this.state.inspiration, achievements: this.state.achievements, website: this.state.website}}),
             headers: new Headers({

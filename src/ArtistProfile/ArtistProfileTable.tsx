@@ -5,6 +5,7 @@ import {
   } from 'reactstrap';
   import { IArtistProfileResponse } from './Interfaces';
   import ArtistProfileEdit from './ArtistProfileEdit'
+  import APIURL from '../helpers/environment'
 
 export interface ArtistProfileTableProps {
     token: string,
@@ -26,7 +27,7 @@ class ArtistProfileTable extends React.Component<ArtistProfileTableProps, Artist
 
     deleteArtistProfile = () => {
       let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch(`http://localhost:3000/artist/delete-profile/${this.props.artistProfile[0].id}`,
+        fetch(`${APIURL}/artist/delete-profile/${this.props.artistProfile[0].id}`,
         {
         method: 'DELETE',
         headers: new Headers({

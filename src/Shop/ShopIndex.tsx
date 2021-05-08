@@ -1,7 +1,8 @@
 import * as React from 'react';
 import ShopCreate from '../Shop/CreateShopListing'
 import ShopTable from './ShopTable';
-import { IShopListingResponse } from '../ArtistProfile/Interfaces'
+import { IShopListingResponse } from '../ArtistProfile/Interfaces';
+import APIURL from '../helpers/environment'
 
 export interface ShopIndexProps {
     token: string,
@@ -27,7 +28,7 @@ class ShopIndex extends React.Component<ShopIndexProps, ShopIndexState> {
 
     fetchShopListings = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch('http://localhost:3000/listing/view-my-listings', {
+        fetch(`${APIURL}/listing/view-my-listings`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

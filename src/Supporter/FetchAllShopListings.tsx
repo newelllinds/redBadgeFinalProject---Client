@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { IShopListingResponse } from '../ArtistProfile/Interfaces';
-import DisplayAllShopListingsMapper from './DisplayAllShopListingsMapper'
+import DisplayAllShopListingsMapper from './DisplayAllShopListingsMapper';
+import APIURL from '../helpers/environment'
 
 export interface FetchAllShopListingsProps {
     token: string;
@@ -21,7 +22,7 @@ class FetchAllShopListings extends React.Component<FetchAllShopListingsProps, Fe
 
     fetchAllShopListings = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch('http://localhost:3000/listing/view-all-listings', {
+        fetch(`${APIURL}/listing/view-all-listings`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

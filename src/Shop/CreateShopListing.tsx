@@ -2,6 +2,7 @@ import React from 'react';
 import { IShopListingResponse } from '../ArtistProfile/Interfaces'
 import DisplayShopListing from './DisplayShopListing';
 import { CardColumns } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 
 export interface CreateShopListingProps {
@@ -85,7 +86,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
         event.preventDefault();
         console.log(this.props.token)
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch('http://localhost:3000/listing/create-listing', {
+        fetch(`${APIURL}/listing/create-listing`, {
             method: 'POST',
             body: JSON.stringify({listing: {image: this.state.image, description: this.state.description, 
                 price: this.state.price, 

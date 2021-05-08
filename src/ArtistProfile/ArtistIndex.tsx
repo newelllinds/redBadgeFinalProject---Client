@@ -2,6 +2,7 @@ import React from 'react';
 import ArtistProfileCreate from './ArtistProfileCreate'
 import ArtistProfileTable from './ArtistProfileTable'
 import { IArtistProfileResponse } from './Interfaces';
+import APIURL from '../helpers/environment'
 
 export interface IndexProps {
     token: string;    
@@ -23,7 +24,7 @@ class Index extends React.Component<IndexProps, IndexState> {
 
     fetchArtistProfile = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch('http://localhost:3000/artist/view-profile', {
+        fetch(`${APIURL}/artist/view-profile`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

@@ -3,6 +3,7 @@ import { IArtistShopResponse } from '../ArtistProfile/Interfaces'
 import ArtistShopMapper from './ArtistShopMapper'
 import DisplayAllArtistProfiles from './DisplayAllArtistProfiles'
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import APIURL from '../helpers/environment'
 
 export interface FetchArtistShopProps extends RouteComponentProps<{id: string}> {
     token: string
@@ -23,7 +24,7 @@ class FetchArtistShop extends React.Component<FetchArtistShopProps, FetchArtistS
     fetchArtistShop = (id: string) => {
         debugger
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch(`http://localhost:3000/listing/view-artist-shop/${id}`, {
+        fetch(`${APIURL}/listing/view-artist-shop/${id}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

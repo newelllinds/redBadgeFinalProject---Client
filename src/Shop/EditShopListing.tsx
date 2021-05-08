@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { IShopListingResponse } from '../ArtistProfile/Interfaces';
+import APIURL from '../helpers/environment'
 
 
 
@@ -36,7 +37,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
         event.preventDefault()
         console.log(this.props.listing)
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
-        fetch(`http://localhost:3000/listing/update-listing/${this.props.listing.id}`, {
+        fetch(`${APIURL}/listing/update-listing/${this.props.listing.id}`, {
             method: 'PUT',
             body: JSON.stringify({listing: {image: this.state.image, description: this.state.description, price: this.state.price, pickup_info: this.state.pickup_info}}),
             headers: new Headers ({

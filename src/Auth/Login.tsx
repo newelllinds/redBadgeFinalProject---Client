@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { FunctionOrConstructorTypeNode } from 'typescript';
+import APIURL from '../helpers/environment'
 
 export interface LoginProps {
     updateToken: Function,
@@ -58,7 +59,7 @@ class Login extends Component<LoginProps, LoginState> {
             (val) => val.length > 0 && (validity = false)
         );
         if(validity === true){
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({user: {username: this.state.username, password: this.state.password}}),
             headers: new Headers({
