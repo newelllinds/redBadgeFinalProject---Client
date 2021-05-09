@@ -43,7 +43,7 @@ class ArtistProfileTable extends React.Component<ArtistProfileTableProps, Artist
       console.log(this.props.artistProfile)
         // console.log(this.props.artistProfile[0].about_the_artist)
         return (
-            <div className='shop-listing-wrapper'>
+            <div className='wrapper'>
             <Card className='profile-display-form-wrapper'>
               {/* <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" /> */}
               <CardBody>
