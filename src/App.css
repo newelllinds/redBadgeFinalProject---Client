@@ -136,7 +136,7 @@ input[name="website"] {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 2em;
   font-weight: lighter;
-  color: #05324c;
+  color: #05324c i !important;
   padding-bottom: 20px;
 }
 

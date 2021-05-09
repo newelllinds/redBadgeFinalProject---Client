@@ -62,7 +62,7 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
     render() { 
         return (
             <div>
-                <Button className='artistprofilesubmiteditbtn' onClick={this.toggle}>Edit Your Profile</Button>
+                <Button className='editbtn' onClick={this.toggle}>Edit Your Profile</Button>
                 <Modal isOpen={!this.state.modal} toggle={this.toggle} >
                     <ModalHeader >Edit Your Profile</ModalHeader>
                     <ModalBody>
@@ -87,7 +87,7 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
                                 <Input name="inspiration"  value={this.state.website} onChange={(e) => this.setState({website: e.target.value})}/>
                             </FormGroup>
                         </FormGroup> 
-            <Button className='artistprofilesubmiteditbtn' type='submit' onClick={this.toggle}>Submit Changes</Button>
+            <Button className='editbtn' type='submit' onClick={this.toggle}>Submit Changes</Button>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </Form>
                     </ModalBody>
