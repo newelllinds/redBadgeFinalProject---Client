@@ -87,7 +87,7 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
                                 <Input name="inspiration"  value={this.state.website} onChange={(e) => this.setState({website: e.target.value})}/>
                             </FormGroup>
                         </FormGroup> 
-            <Button color="primary" type='submit' onClick={this.toggle}>Submit Changes</Button>
+            <Button className='submit' type='submit' onClick={this.toggle}>Submit Changes</Button>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </Form>
                     </ModalBody>

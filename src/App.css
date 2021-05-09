@@ -28,7 +28,6 @@ div {
 }
 
 .wrapper {
-  /* height: 97vh; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -54,23 +53,17 @@ div {
 
 /* Shop Listing Styles */
 .shop-listing-wrapper {
-  /* width: 100%; */
-  /* display: flex; */
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   padding-top: 10%;
-  /* background-color: rgb(171, 146, 191); */
 }
 
 .shop-listing-form-wrapper {
   display: flex;
-  /* flex-direction: column; */
   width: 280px;
   max-width: 80%;
   min-width: 100px;
   min-height: 400px;
-  /* border-radius: 6px; */
   box-shadow: 0px 8px 36px #222;
   background-color: #fefefe;
 }
@@ -78,7 +71,6 @@ div {
 /* Profile Create Styles */
 
 .profile-create-wrapper {
-  /* height: 97vh; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -94,8 +86,6 @@ div {
   flex-direction: column;
   width: 500px;
   max-width: 80%;
-  /* min-width: 100px;
-  min-height: 400px; */
   padding: 20px 40px;
   border-radius: 6px;
   box-shadow: 0px 8px 36px#05324c;
@@ -132,11 +122,8 @@ input[name="website"] {
 .profile-display-form-wrapper {
   display: flex;
   margin-top: 10%;
-  /* flex-direction: column; */
   width: 500px;
   max-width: 80%;
-  /* min-width: 100px;
-  min-height: 400px; */
   padding: 20px 40px;
   border-radius: 6px;
   box-shadow: 0px 8px 36px#05324c;
@@ -162,12 +149,6 @@ input[name="website"] {
   color: #05324c;
   padding-bottom: 20px;
 }
-
-/* form {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-} */
 
 label {
   margin-bottom: 0.5em;
@@ -233,19 +214,6 @@ button:hover {
   margin: auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-/* 
-.artist-form-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  max-width: 80%;
-  min-width: 100px;
-  min-height: 400px;
-  padding: 20px 40px;
-  border-radius: 6px;
-  box-shadow: 0px 8px 36px #222;
-  background-color: #fefefe;
-} */
 
 .modal-header {
   display: block !important;
