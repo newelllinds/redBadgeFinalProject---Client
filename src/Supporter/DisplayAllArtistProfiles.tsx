@@ -20,8 +20,8 @@ class DisplayAllArtistProfiles extends React.Component<DisplayAllArtistProfilesP
     }
     render() { 
         return (
-            <div className='wrapper'>
-            <Card className='profile-display-form-wrapper'>
+            <div className='shop-listing-wrapper'>
+            <Card className='shop-listing-form-wrapper'>
               {/* <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" /> */}
               <CardBody>
                 <CardTitle tag="h5">Artist Profile</CardTitle>
