@@ -5,6 +5,10 @@
   background: url("../src/Images/headerImage3.jpg");
 }
 
+.logout {
+  align-self: right;
+}
+
 .text-center {
   margin-top: 20px;
   margin-bottom: 20px;
