@@ -169,7 +169,7 @@ input::placeholder {
   color: #bbb;
 }
 
-.artistprofilesubmiteditbtn {
+/* .artistprofilesubmiteditbtn {
   min-width: 100%;
   cursor: pointer;
   margin-right: 0.25em;
@@ -184,9 +184,10 @@ input::placeholder {
 .artistprofilesubmiteditbtn:hover {
   background-color: rgb(171, 146, 191);
   color: #fefefe;
-}
+} */
 
-button {
+button,
+Button {
   min-width: 100%;
   cursor: pointer;
   margin-right: 0.25em;
