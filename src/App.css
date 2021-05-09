@@ -9,6 +9,10 @@
   align-self: right;
 }
 
+a {
+  color: #05324c !important;
+}
+
 .text-center {
   margin-top: 20px;
   margin-bottom: 20px;
