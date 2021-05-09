@@ -56,6 +56,7 @@ div {
   justify-content: center;
   align-items: center;
   padding-top: 10%;
+  background-color: rgb(214, 202, 152);
 }
 
 .shop-listing-form-wrapper {
@@ -64,8 +65,8 @@ div {
   max-width: 80%;
   min-width: 100px;
   min-height: 400px;
-  box-shadow: 0px 8px 36px #222;
-  background-color: #fefefe;
+  box-shadow: 0px 8px 36px #05324c;
+  /* background-color: #fefefe; */
 }
 
 /* Profile Create Styles */
