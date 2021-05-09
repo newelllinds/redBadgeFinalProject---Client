@@ -52,12 +52,10 @@ div {
 }
 
 /* Shop Listing Styles */
-.shop-listing-wrapper,
-.artist-profile-wrapper {
+.shop-listing-wrapper {
   justify-content: center;
   align-items: center;
   padding-top: 10%;
-  background-color: #fefefe;
 }
 
 .shop-listing-form-wrapper {
