@@ -169,7 +169,7 @@ input::placeholder {
   color: #bbb;
 }
 
-/* .artistprofilesubmiteditbtn {
+.artistprofilesubmiteditbtn {
   min-width: 100%;
   cursor: pointer;
   margin-right: 0.25em;
@@ -177,17 +177,16 @@ input::placeholder {
   padding: 0.938em;
   border: none;
   border-radius: 4px;
-  background-color: rgb(101, 90, 124);
-  color: #fefefe;
+  background-color: rgb(101, 90, 124) !important;
+  color: #fefefe i !important;
 }
 
 .artistprofilesubmiteditbtn:hover {
-  background-color: rgb(171, 146, 191);
-  color: #fefefe;
-} */
+  background-color: rgb(171, 146, 191) !important;
+  color: #fefefe !important;
+}
 
-button,
-Button {
+button {
   min-width: 100%;
   cursor: pointer;
   margin-right: 0.25em;
