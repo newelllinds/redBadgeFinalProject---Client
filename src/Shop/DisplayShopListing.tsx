@@ -42,7 +42,7 @@ class DisplayShopListing extends React.Component<DisplayShopListingProps, Displa
     render() { 
         return ( 
             <div>
-                            <div className='shop-listing-wrapper'>
+                            <div className='wrapper'>
             <Card className='shop-listing-form-wrapper'>
               <CardImg top width="100%" src={this.props.listing.image} alt="Card image cap" />
               <CardBody>
