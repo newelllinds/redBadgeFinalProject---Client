@@ -33,10 +33,11 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
         };
     }
 
-    uploadNewImage = async (e: any) => {
-        const files = e.target.files
+    uploadNewImage = async (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
+        const target = (e.target as HTMLInputElement)
+        const files: File = (target.files as FileList) [0];
         const data = new FormData()
-        data.append('file', files[0])
+        data.append('file', files)
         data.append('upload_preset', 'artapp')
         this.setState({
             loading: true
@@ -96,7 +97,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
                         <Form onSubmit={this.UpdateShopListing}>
                             <FormGroup>
                                 <Label htmlFor="about-the-artist">Edit Image:</Label>
-                                <Input type='file' name="about-the-artist" value={this.state.editImage} onChange={this.uploadNewImage}/>
+                                <Input type='file' name="about-the-artist" onChange={this.uploadNewImage}/>
                                 { this.state.loading ? (
                                     <h3>Loading...</h3>
                                 ) : (
