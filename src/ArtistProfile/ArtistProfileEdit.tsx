@@ -62,7 +62,7 @@ class ArtistProfileEdit extends React.Component<ArtistProfileEditProps, ArtistPr
     render() { 
         return (
             <div>
-                <Button color="danger" onClick={this.toggle}>Edit Your Profile</Button>
+                <Button className='artistprofilesubmiteditbtn' onClick={this.toggle}>Edit Your Profile</Button>
                 <Modal isOpen={!this.state.modal} toggle={this.toggle} >
                     <ModalHeader >Edit Your Profile</ModalHeader>
                     <ModalBody>
