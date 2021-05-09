@@ -1,8 +1,12 @@
 .jumbotron {
-  height: 350px;
-  width: 100% !important;
-  padding-top: 100%;
+  /* height: 350px; */
+  width: 100vw;
+  /* padding-top: 100%; */
   padding-bottom: 20%;
+}
+
+.container {
+  width: 100vw;
 }
 
 .text-center {
