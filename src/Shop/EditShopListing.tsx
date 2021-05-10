@@ -116,7 +116,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
                                 <Label htmlFor="achievements">Edit Pick Up Info:</Label>
                                 <Input name="achievements"  value={this.state.editPickup_info} onChange={(e) => this.setState({editPickup_info: e.target.value})}/>
                         </FormGroup> 
-            <Button color="primary" type='submit' onClick={this.toggle}>Submit Changes</Button>
+            <Button className='editbtn' type='submit' onClick={this.toggle}>Submit Changes</Button>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </Form>
                     </ModalBody>
