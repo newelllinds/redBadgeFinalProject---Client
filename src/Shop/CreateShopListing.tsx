@@ -15,7 +15,7 @@ export interface CreateShopListingState {
     // shopListing: IShopListingResponse[]
     image: string,
     description: string,
-    price: Number,
+    price: string,
     pickup_info: string,
     loading: boolean
 }
@@ -27,7 +27,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
             // shopListing: []
             image: '',
             description: '',
-            price: 0,
+            price: '',
             pickup_info: '',
             loading: false
         };
@@ -89,7 +89,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
         fetch(`${APIURL}/listing/create-listing`, {
             method: 'POST',
             body: JSON.stringify({listing: {image: this.state.image, description: this.state.description, 
-                price: this.state.price, 
+                price: Number(this.state.price), 
                 pickup_info: this.state.pickup_info}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
 
                 image: '',
                 description: '',
-                price: 0,
+                price: '',
                 pickup_info: ''
             })
         this.props.fetchShopListings()
@@ -145,7 +145,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
                         <div className='inspiration'>
                             <label htmlFor='inspiration'>Price</label>
                             <br></br>
-                            <input type='number' name='inspiration' onChange={(e) => this.setState({price: e.target.valueAsNumber})}/>
+                            <input type='number' name='inspiration' onChange={(e) => this.setState({price: e.target.value})}/>
                         </div>
                         <div className='achievements'>
                             <label htmlFor='achievements'>Pick Up Information</label>
