@@ -15,7 +15,7 @@ export interface EditShopListingState {
     modal: boolean,
     editImage: string,
     editDescription: string,
-    editPrice: string,
+    editPrice: number,
     editPickup_info: string,
     loading: boolean
 }
@@ -66,7 +66,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
         let token = this.props.token ? this.props.token : localStorage.getItem('token')
         fetch(`${APIURL}/listing/update-listing/${this.props.listing.id}`, {
             method: 'PUT',
-            body: JSON.stringify({listing: {image: this.state.editImage, description: this.state.editDescription, price: Number(this.state.editPrice), pickup_info: this.state.editPickup_info}}),
+            body: JSON.stringify({listing: {image: this.state.editImage, description: this.state.editDescription, price: this.state.editPrice, pickup_info: this.state.editPickup_info}}),
             headers: new Headers ({
                 'Content-Type': 'application/json',
                 'Authorization': token? token: '',
@@ -78,7 +78,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
                 this.setState({
                     editImage: '',
                     editDescription: '',
-                    editPrice: '',
+                    editPrice: 0,
                     editPickup_info: '',
                 })
             this.props.fetchShopListings()
@@ -110,7 +110,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="inspiration">Edit Price:</Label>
-                                <Input name="inspiration"  valueAsNumber={this.state.editPrice} onChange={(e) => this.setState({editPrice: e.target.value})}/>
+                                <Input name="inspiration"  valueAsNumber={this.state.editPrice} onChange={(e) => this.setState({editPrice: e.target.valueAsNumber})}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="achievements">Edit Pick Up Info:</Label>

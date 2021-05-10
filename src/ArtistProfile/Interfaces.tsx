@@ -12,7 +12,7 @@ export interface IShopListingResponse {
     id: number,
     image: string,
     description: string,
-    price: string,
+    price: number,
     pickup_info: string
 }
 
@@ -20,7 +20,7 @@ export interface IArtistShopResponse {
     id: number,
     image: string,
     description: string,
-    price: string,
+    price: number,
     pickup_info: string,
     userId: number
 }

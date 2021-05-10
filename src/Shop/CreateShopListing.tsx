@@ -15,7 +15,7 @@ export interface CreateShopListingState {
     // shopListing: IShopListingResponse[]
     image: string,
     description: string,
-    price: string,
+    price: number,
     pickup_info: string,
     loading: boolean
 }
@@ -27,7 +27,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
             // shopListing: []
             image: '',
             description: '',
-            price: '',
+            price: 0,
             pickup_info: '',
             loading: false
         };
@@ -89,7 +89,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
         fetch(`${APIURL}/listing/create-listing`, {
             method: 'POST',
             body: JSON.stringify({listing: {image: this.state.image, description: this.state.description, 
-                price: Number(this.state.price), 
+                price: this.state.price, 
                 pickup_info: this.state.pickup_info}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
 
                 image: '',
                 description: '',
-                price: '',
+                price: 0,
                 pickup_info: ''
             })
         this.props.fetchShopListings()
@@ -145,7 +145,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
                         <div className='inspiration'>
                             <label htmlFor='inspiration'>Price</label>
                             <br></br>
-                            <input type='text' name='inspiration' onChange={(e) => this.setState({price: e.target.value})}/>
+                            <input type='text' name='inspiration' onChange={(e) => this.setState({price: e.target.valueAsNumber})}/>
                         </div>
                         <div className='achievements'>
                             <label htmlFor='achievements'>Pick Up Information</label>
