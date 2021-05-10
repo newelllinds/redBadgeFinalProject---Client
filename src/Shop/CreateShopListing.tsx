@@ -145,7 +145,7 @@ class CreateShopListing extends React.Component<CreateShopListingProps, CreateSh
                         <div className='inspiration'>
                             <label htmlFor='inspiration'>Price</label>
                             <br></br>
-                            <input type='number' name='inspiration' onChange={(e) => this.setState({price: e.target.value})}/>
+                            <input type='text' name='inspiration' onChange={(e) => this.setState({price: e.target.value})}/>
                         </div>
                         <div className='achievements'>
                             <label htmlFor='achievements'>Pick Up Information</label>

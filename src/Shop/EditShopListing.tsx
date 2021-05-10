@@ -34,8 +34,8 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
     }
 
     uploadNewImage = async (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
-        const target = (e.target as HTMLInputElement)
-        const files: File = (target.files as FileList) [0];
+        let target = (e.target as HTMLInputElement)
+        const files: File = (target.files as FileList)[0];
         const data = new FormData()
         data.append('file', files)
         data.append('upload_preset', 'artapp')
