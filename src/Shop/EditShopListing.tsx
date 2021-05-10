@@ -90,7 +90,7 @@ class EditShopListing extends React.Component<EditShopListingProps, EditShopList
     render() { 
         return (
             <div>
-                <Button className='editbtn' onClick={this.toggle}>Edit Your Shop Listing</Button>
+                <Button className='editbtn' onClick={this.toggle}>Edit Shop Listing</Button>
                 <Modal isOpen={!this.state.modal} toggle={this.toggle} >
                     <ModalHeader >Edit Your Shop Listing</ModalHeader>
                     <ModalBody>

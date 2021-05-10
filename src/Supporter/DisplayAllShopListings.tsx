@@ -27,7 +27,7 @@ class DisplayAllShopListings extends React.Component<DisplayAllShopListingsProps
 <CardImg top width="100%" src={this.props.listing.image} alt="Card image cap" />
 <CardBody>
 {/* <CardTitle tag="h5">Artist Profile</CardTitle> */}
-{/* <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.price}</CardSubtitle> */}
+<CardSubtitle tag="h6" className="mb-2 text-muted">${this.props.listing.price}</CardSubtitle>
 <CardText>Description: {this.props.listing.description}<br></br>
 Pick Up Information: {this.props.listing.pickup_info}</CardText>
 {/* <Button>Visit Artist's Profile</Button> */}
